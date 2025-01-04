@@ -20,8 +20,12 @@ const BookingRooms = () => {
     };
 
     fetchBookings();
-  }, []);
-
+  }, [rooms]);
+  const deleteBooking=async(room,index)=>{
+    const response = await axios.post('http://localhost:3001/api/v1/deleteBooking',{room,index});
+    console.log(response.data);
+    
+  }
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
@@ -44,6 +48,7 @@ const BookingRooms = () => {
                     <p><strong>Customer:</strong> {booking.bookedUser.Name}</p>
                     <p><strong>Email:</strong> {booking.bookedUser.Email}</p>
                     <p><strong>Phone:</strong> {booking.bookedUser.Phone}</p>
+                    <button className='bg-black text-white p-3 rounded-full' onClick={()=>{deleteBooking(room,index)}}>Delete Booking</button>
                   </div>
                 ))
               ) : (

@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className='flex justify-between bg-black text-white p-3'>
     <div onClick={()=>{navigate('/')}}>Home</div>
-    <div onClick={()=>{navigate('/BookingRooms')}}>Booked Tickets</div>
+    <div onClick={()=>{navigate('/BookingRooms')}}>Reserved Rooms</div>
     </div>
     
   )
