@@ -10,7 +10,7 @@ const BookingRooms = () => {
     // Fetch room and booking data from the backend
     const fetchBookings = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/v1/bookings');
+        const response = await axios.get('https://restaurant-booking-system-serverside.onrender.com/api/v1/bookings');
         setRooms(response.data);
       } catch (err) {
         setError('Failed to fetch booking data');
@@ -22,7 +22,7 @@ const BookingRooms = () => {
     fetchBookings();
   }, [rooms]);
   const deleteBooking=async(room,index)=>{
-    const response = await axios.post('http://localhost:3001/api/v1/deleteBooking',{room,index});
+    const response = await axios.post('https://restaurant-booking-system-serverside.onrender.com/api/v1/deleteBooking',{room,index});
     console.log(response.data);
     
   }

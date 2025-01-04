@@ -65,7 +65,7 @@ const CheckAvailabilityForm = () => {
         setAvailableRooms([]);
 
         try {
-            const response = await axios.post("http://localhost:3001/api/v1/checkAvailability", formData);
+            const response = await axios.post("https://restaurant-booking-system-serverside.onrender.com/api/v1/checkAvailability", formData);
             setAvailableRooms(response.data.availableRooms);
         } catch (err) {
             setError("Failed to fetch available rooms.");
@@ -89,7 +89,7 @@ const CheckAvailabilityForm = () => {
             e.preventDefault();
             const { Name, Email, Phone, from, to } = userInfo;
             const payload = { Name, Email, Phone, from, to };
-            const response = await axios.patch(`http://localhost:3001/api/v1/bookRoom/${bookingRoom.roomNumber}`, payload);
+            const response = await axios.patch(`https://restaurant-booking-system-serverside.onrender.com/api/v1/bookRoom/${bookingRoom.roomNumber}`, payload);
             setBookingFormOpenStatus(false);
             setError(null);
             setBookingRoom({});
